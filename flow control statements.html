@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>flow control statements </title>
+</head>
+<body>
+<script>
+	console.log("if语句");
+	function myfun1(){
+		var myNumber=9;
+		if (myNumber>6) {
+			console.log(myNumber + " > 6");
+			//退出循环
+			return false;
+		}
+		else if (myNumber<6) {
+			console.log(myNumber + " <6");
+			return false;
+		}
+		else{
+			console.log(myNumber + " =6");
+			return false;
+		}
+	}
+	myfun1();
+
+
+	console.log("switch语句");
+	function myfun2(){
+		var color="blue";
+		switch(color)
+		{
+			case "red":
+				console.log("red");
+				break;
+			case "yellow":
+				console.log("yellow");
+				break;
+			case "green":
+				console.log("green");
+				break;
+			case "blue":
+			case "pink":
+				console.log("blue or pink")
+				break;
+			default:
+				console.log("what happened?");
+		}
+	}
+	myfun2();
+
+
+	console.log("for 循环");
+	function myfun3(){
+		var sum=0;
+		for (var i = 0; i < 10; i++) {
+			
+			var sum = sum += i;
+		}
+		console.log(sum);
+	}
+	myfun3();
+
+
+	console.log("while 循环");
+	function myfun4(){
+		var i=0;
+		var sum=0;
+		while(i<10)
+		{
+			//加等于前面不能加var
+			sum += i;
+			i++;
+		}
+		console.log(sum);
+	}
+	myfun4();
+
+
+	console.log("do循环");
+	function myfun5(){
+		var sum=0;
+		var i=0;
+		do
+		{
+			sum += i;
+			i++;
+		}
+		while(i<10);
+		console.log(sum);
+	}
+	myfun5();
+
+	function myfun6(){
+		//第一步把之前的数据写成一个数组的形式,定义变量为 infos
+		var infos=new Array();
+		infos[0]=['小A','女',21,'大一'];
+		infos[1]=['小B','男',23,'大三'];
+		infos[2]=['小C','男',24,'大四'];
+		infos[3]=['小D','女',21,'大一'];
+		infos[4]=['小E','女',22,'大四'];
+		infos[5]=['小F','男',21,'大一'];
+		infos[6]=['小G','女',22,'大二'];
+		infos[7]=['小H','女',20,'大三'];
+		infos[8]=['小I','女',20,'大一'];
+		infos[9]=['小J','男',20,'大三'];
+		console.log(infos); 
+		 //第一次筛选，找出都是大一的信息
+		 var n=0;
+		 var freshmen = new Array();
+		for(var i=0;i<10;i++){
+			
+			var a=9
+			if (infos[i][3]==='大一') {
+				var b=8;				
+				freshmen[n]=infos[i];
+				console.log(freshmen[n][1]);				
+				n++;
+			}			     
+		}
+		for (var j = 0; j < freshmen.length; j++) {
+			if(freshmen[j][1]==="女"){
+			    console.log(freshmen[j]);
+			}
+		}
+		console.log(a);
+		console.log(b);
+		console.log(n);
+		console.log(freshmen); 
+	}
+
+	myfun6();
+	 
+</script>
+
+</body>
+</html>
