@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>js evevt</title>
+	<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+	<style type="text/css">
+		.box1{
+			width: 100px;
+			height: 100px;
+			background-color: green;
+			color: white;
+		}
+	</style>
+</head >
+<body onload="myfun8()" >
+
+<input type='text' id='txt1' /> 
+<select id='select'>
+	<option value='+'>+</option>
+	<option value="-">-</option>
+	<option value="*">*</option>
+	<option value="/">/</option>
+</select>
+
+<input type='text' id='txt2' > 
+<input type='button' value=' = ' onclick="count()"> <!--通过 = 按钮来调用创建的函数，得到结果--> 
+<input type='text' id='fruit'>
+
+
+<button onclick="myfun1()">onclick</button>
+
+<div onmouseover="myfun2()" class="box1" onmouseout="myfun3()">please onmouseover me</div>
+<input type="text" name="" onfocus="myfun4()" onblur="myfun5()">
+<form onselect="myfun6()" onchange="myfun7()"> 
+   <textarea name="summary" cols="60" rows="5">please select me</textarea>
+  </form>
+<script>
+//点击事件onclick
+function myfun1(){
+	alert("you had clicked");
+}	
+
+//鼠标进入事件onmouseover
+function myfun2(){
+	$(".box1").text("thank you");
+}
+
+//鼠标离开事件onmouseout
+function myfun3(){
+	$(".box1").text("ohh,you had gone");
+}
+
+//获取焦点，onfocus事件
+function myfun4(){
+	alert("onfocus");
+}
+
+//失去焦点，onblur事件
+function myfun5(){
+	alert("onblur");
+}
+
+//选中事件,onselect
+function myfun6(){
+	alert("onselect");
+}
+
+//文本框发生改变，onchange事件,失去焦点才会生效
+function myfun7(){
+	alert("onchange");
+}
+
+//加载数据 onload
+function myfun8(){
+	alert("已经加载完成");
+}
+
+//离开页面，onbeforeunload事件
+window.onbeforeunload=function(evevt){
+	evevt.returnValue="want to left?";
+}
+
+function count(){
+      var a=parseInt(document.getElementById("txt1").value); 
+      var b=parseInt( document.getElementById("txt2").value);
+      var count=document.getElementById("select").value;
+      console.log(count);
+      var result;
+      switch(count)
+      {
+        case "+":
+            result = a + b;
+            break;
+        case "-":
+            result=a-b;
+            break;
+        case "*":
+            result=a*b;
+            break;
+        default:
+            result=a/b;
+            break;
+              
+      } 
+
+      document.getElementById("fruit").value=result;
+   
+  }
+</script>
+</body>
+</html>
