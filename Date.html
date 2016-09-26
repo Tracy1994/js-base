@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>Date object</title>
+</head>
+<body>
+<p>请f12打开控制台</p>
+<script>
+	var myDate=new Date();
+	console.log(myDate);
+
+	console.log("getDate()方法，返回日期");
+	console.log(myDate.getDate());
+
+	console.log("getFullYear()方法，返回年份");
+	console.log(myDate.getFullYear());
+
+	console.log("getMonth()方法，返回月份-1");
+	console.log(myDate.getMonth());
+
+
+	console.log("getDay()方法，返回星期");
+	console.log(myDate.getDay());
+
+
+	console.log("getHours()方法，返回24小时制的小时");
+	console.log(myDate.getHours());
+
+	console.log("getMinutes()方法，返回分钟数");
+	console.log(myDate.getMinutes());
+
+	console.log("getSeconds()方法，返回秒数");
+	console.log(myDate.getSeconds());
+
+	console.log("getTime()方法，返回时间，到毫秒");
+	console.log(myDate.getTime());
+	myDate.setTime(myDate.getTime() + 2*60*60*1000);
+	console.log("推迟2小时的时间：" + myDate);
+
+
+</script>
+</body>
+</html>
