@@ -142,9 +142,8 @@
 		 //从数组中将成绩撮出来，然后求和取整，并输出平均分。
 		 var sum=0;
 		 for (var i = 0; i < students.length; i++) {
-		 	console.log(students[i].substring(3));
-		 	console.log(Number(students[i].substring(3)));
-		 	sum +=Number(students[i].substring(3));
+		 	console.log(students[i].substr(3,2));
+		 	sum +=Number(students[i].substr(3,2));
 		 }
 		 console.log("sum:" + sum);
 		 var average=Math.round(sum/students.length) ;
