@@ -39,6 +39,19 @@
 	console.log("推迟2小时的时间：" + myDate);
 
 
+	//通过javascript的日期对象来得到当前的日期，并输出。
+	function rewriteDate(){
+		var myDate = new Date();
+		var myYear = myDate.getFullYear();
+		var myMonth=myDate.getMonth();
+		var myDate1=myDate.getDay();
+		var myDay=myDate.getDay();
+		var myDays=["一","二","三","四","五","六","日"];
+		
+		document.write(myYear + "年" + myMonth + "月" + myDate1 + "日" + "星期" + myDays[myDay]);
+	}
+	 rewriteDate(); 
+
 </script>
 </body>
 </html>

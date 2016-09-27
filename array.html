@@ -133,7 +133,24 @@
 
 	}
 
-
+	//成绩是一长窜的字符串不好处理，找规律后分割放到数组里更好操作哦
+	function getAverage(){
+		var scoreStr = "小明:87;小花:81;小红:97;小天:76;小张:74;小小:94;小西:90;小伍:76;小迪:64;小曼:76";
+		var students=new Array();
+		students=scoreStr.split(";");
+		console.log(students[3]);
+		 //从数组中将成绩撮出来，然后求和取整，并输出平均分。
+		 var sum=0;
+		 for (var i = 0; i < students.length; i++) {
+		 	console.log(students[i].substring(3));
+		 	console.log(Number(students[i].substring(3)));
+		 	sum +=Number(students[i].substring(3));
+		 }
+		 console.log("sum:" + sum);
+		 var average=Math.round(sum/students.length) ;
+		 console.log("average:" + average);
+	}
+	getAverage(); 
 </script>
 </body>
 </html>
