@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>window object</title>
+</head>
+<body>
+<button onclick="myfun1()">alert and window.open()</button><br>
+<button onclick="myfun2()">input number</button><br>
+<p id="myTime"></p>
+<button onclick="myfun3()">stop</button><br>
+
+<span>6+7=</span><span id="result4"></span> <button onclick="myfun4()">get result after 2s</button><br>
+<p id="myTime1"></p>
+<button onclick="myfun5()">star</button> <button onclick="myfun6()">stop</button>
+<script>
+	function myfun1(){
+		alert("welcome to healthHome");
+		window.open("http://123.207.111.128/front.1/index.html","_blank","width=200 height=100")
+	}
+
+
+	function myfun2(){
+		var num= prompt("please input a number");
+		console.log("num:" +num);
+	}
+
+	function clock(){
+		var myTime=new Date();          
+		var atTime = myTime.getHours() + ":" +myTime.getMinutes()+":" +myTime.getSeconds();	
+		document.getElementById("myTime").innerHTML = atTime;	
+	}
+
+	//setInterval(func，time)方法time的单位为毫秒
+	//下面语句表示，定义一个名字为i的计时器，作用为每1000ms，执行一次clock函数
+
+	var i= setInterval(clock,1000);
+
+	//clearInterval（）方法用作清除计时器用setInterval（）方法创建的计时器
+	function myfun3(){
+		clearInterval(i);
+	}
+
+	//setTimeout(func,time)，隔time时间后只执行一次函数func（）
+	function getResult4(){
+		document.getElementById("result4").innerHTML=13;
+	}
+
+	
+	function myfun4(){
+		setTimeout(getResult4,2000);
+	}
+
+	//注意：把setTimeout（）放在func（）函数内，会不断循环调用setTimeout（）
+	var fun5;
+	function myfun5(){
+		var myTime=new Date();          
+		var atTime = myTime.getHours() + ":" +myTime.getMinutes()+":" +myTime.getSeconds();	
+		document.getElementById("myTime1").innerHTML = atTime;	
+		fun5= setTimeout(myfun5,1000);
+	}
+
+	//清除用setTimeout创建的计时器
+	function myfun6(){
+		clearTimeout(fun5);
+	}
+</script>
+</body>
+</html>
