@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>2</title>
+</head>
+<body>
+<p>2</p>
+<a href="./3.html">go to 3</a>
+<button onclick="goBack()">返回前一个页面</button>
+<button onclick="goBack1()">go(-1)方法</button>
+<button onclick="next()">返回下一个浏览的页面</button>
+<button onclick="next1()">go(1)方法</button>
+<script>
+	//history对象从浏览器打开那一刻开始创建
+	//back()方法
+	function goBack(){
+		history.back();
+	}
+
+
+	//go()方法
+	function goBack1(){
+		history.go(-1);
+	}
+
+	//forward()方法
+	function next(){
+		history.forward();
+	}
+
+	//go(1)方法
+	function next1(){
+		history.go(1);
+	}
+</script>
+</body>
+</html>
