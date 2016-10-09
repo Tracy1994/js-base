@@ -6,10 +6,10 @@
 </head>
 <body>
 
-<li id="li">this is a li</li>
-
-<button onclick="getNodeType()">get Li Node Info</button>
-
+<li>this is a li</li>
+<p>this is a p</p>
+<button onclick="getNodeInfo('li')">get Li Node Info</button>
+<button onclick="getNodeInfo('p')">get p node info</button>
 <p id="result"></p>
 <script>	
 //节点属性nodeValue,nodeType,nodeName
@@ -32,8 +32,8 @@ nodeType 属性: 节点的类型，是只读的。以下常用的几种结点类
 */
 
 
-function getNodeType(){
-	var node=document.getElementsByTagName("li")[0];
+function getNodeInfo(tagName){
+	var node=document.getElementsByTagName(tagName)[0];
 	getResult(node);
 }
 
