@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>set/getAtrribute</title>
+</head>
+<body>
+<p id="intro">课程列表</p>  
+    <ul>  
+        <li title="第1个li">HTML</li>  
+        <li>CSS</li>  
+        <li title="第3个li">JavaScript</li>  
+        <li title="第4个li">Jquery</li>  
+        <li>Html5</li>  
+    </ul> 
+<button onclick="getTitle()">以下为获取的不为空的li标签title值:</button> <br>
+<button onclick="setTitle()">设置title值</button><br>
+<p id="titleVal"></p>
+<script>
+	//getAttribute("name")方法
+	function getTitle(){
+		var Lists=document.getElementsByTagName("li");		
+		var titlesVal='';
+		for (var i = 0; i < Lists.length; ) {
+			if (Lists[i].getAttribute("title")==null) {
+				i++;
+			}
+			else{
+				titlesVal += Lists[i].getAttribute("title") + " ";
+				i++;
+			}
+			
+		}
+		document.getElementById("titleVal").innerHTML=titlesVal;
+	}
+
+
+	//setAttribute("name","value")方法
+	function setTitle(){
+		var Lists=document.getElementsByTagName("li");		
+		var titlesVal='';
+		for (var i = 0; i < Lists.length;i++) {
+			if (Lists[i].getAttribute("title")==null) {
+				Lists[i].setAttribute("title","第n个li");				
+			}
+			titlesVal += Lists[i].getAttribute("title") + " ";			
+		}
+		document.getElementById("titleVal").innerHTML=titlesVal;
+	}
+
+</script>
+</body>
+</html>
