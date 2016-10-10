@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>node operation</title>
+</head>
+<body>
+<ul id="test"><li>JavaScript</li><li>HTML</li></ul> 
+<button onclick="addPhp()"> ul appendChile php</button><br>
+<button onclick="insertPhp()">insert php before html</button><br>
+<button onclick="removeNodes()">remove nodes</button><br>
+<button onclick="replaceNode()">replace JavaScript into a link</button><br>
+<script type="text/javascript">
+
+//appendChild(node)在节点的后面添加一个节点
+function addPhp(){
+	var ul = document.getElementById("test");  
+	var li=buildPhp();
+	ul.appendChild(li);
+	
+}
+
+//createElement("tagName")创建一个节点
+//createTextNode(data)创建文本节点
+function buildPhp(){
+	var li=document.createElement("li");
+	var li_txt=document.createTextNode("PHP");
+	li.appendChild(li_txt);
+	return li;
+}
+
+//parentNode.insertBefore(newnode,node)在节点node前面添加节点newnode;  
+function insertPhp(){
+	var ul = document.getElementById("test");  
+	var node=ul.childNodes[1];
+	var newnode=buildPhp();
+
+	ul.insertBefore(newnode,node);
+}
+ 
+//parentNode.removeChild(node) 删除节点
+function removeNodes() {
+	var ul = document.getElementById("test");  
+	while(ul.firstChild!==null)
+	{
+		ul.removeChild(ul.firstChild);		
+	}
+}      
+
+//parentNode.replaceChild(newnode,oldnode);
+function replaceNode(){
+	var parentNode=document.getElementById("test");
+	var newnode=document.createElement("a");
+	newnode.setAttribute("href","#");
+	var newnode_txt=document.createTextNode("JavaScript");
+	newnode.appendChild(newnode_txt);
+	var oldnode=parentNode.firstChild;
+
+	parentNode.replaceChild(newnode,oldnode);
+}
+</script>
+</body>
+</html>
