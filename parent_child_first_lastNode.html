@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>visit nodes</title>
+</head>
+<body>
+	<div><!-- 空白节点 -->
+		<p>PHP</p><!-- 空白节点 -->
+		<p>JS</p><!-- 空白节点 -->
+		<p>HTML</p><!-- 空白节点 -->
+	</div>
+	
+	<button onclick="getChildeNodes()">get div childeNodes nodeValue</button><br>
+
+
+	<ul><li>PHP</li><li>JS</li><li>HTML</li></ul>
+	<button onclick="getUlFirstChild()">get ul's first child</button><br>
+	<button onclick="getUlLastChild()">get ul's last child</button><br>
+	<button onclick="getParentNode()">get PHP's parentNode</button>
+	<p id="result"></p>
+<script type="text/javascript">
+	/*
+	元素类型    节点类型
+	  元素          1
+	  属性          2
+	  文本          3
+	  注释          8
+	  文档          9
+	 */
+	 //在非IE浏览器中，若注释处没有东西，为空白节点，节点个数为7，意思是每次换行加一空白节点。IE浏览器换行，不加节点
+
+	 //childNodes 方法，由于访问所有子节点
+	function  getChildeNodes(){
+		var div=document.getElementsByTagName("div")[0];
+		var nodesType="";
+		console.log(typeof(div.childNodes));
+		for (var i = 0; i < div.childNodes.length; i++) {
+			nodesType += div.childNodes[i].nodeType + " ";
+		}
+		document.getElementById("result").innerHTML= "节点个数 " +div.childNodes.length + "<br>" + "节点类型： " + nodesType;
+	}
+
+
+	//parentNode.firstChild获取的一个子节点
+	function getUlFirstChild(){
+		var parentnode=document.getElementsByTagName("ul")[0];
+		document.getElementById("result").innerHTML=parentnode.firstChild.innerHTML;
+	}
+
+
+	//parentNode,lastChild()获取最后一个子节点
+	function getUlLastChild(){
+		var parentnode=document.getElementsByTagName("ul")[0];
+		document.getElementById("result").innerHTML=parentnode.lastChild.innerHTML;
+
+	}
+
+
+	//elementNode.parentNode获取父节点
+	function getParentNode(){
+		var php=document.getElementsByTagName("li")[0];
+		document.getElementById("result").innerHTML=php.parentNode.nodeName;
+
+	}
+</script>
+</body>
+</html>
