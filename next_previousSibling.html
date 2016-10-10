@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>nextSibling previousSibling</title>
+</head>
+<body>
+<ul>
+	<li>PHP</li>
+	<li>JavaScript</li>
+	<li>HTML</li>
+</ul>
+<button onclick="getNextSibling()">get javascript nextSibling</button>
+<button onclick="getPerSibling()">get JavaScript previousSibling</button>
+<p id="result"></p>
+<script>
+//elementnode.nextSibling 可返回某个节点之后紧跟的节点（处于同一树层级中）。
+function getNextSibling(){
+	var js=document.getElementsByTagName('li')[1];
+	var next=js.nextSibling;
+	while(next.nodeType!==1){
+		next=next.nextSibling;
+	}
+	document.getElementById("result").innerHTML=next.innerHTML;
+}	
+
+//elementnode.previousSibling 可返回某个节点之前紧跟的节点（处于同一树层级中）。
+function getPerSibling(){
+	var js=document.getElementsByTagName('li')[1];
+	var pre=js.previousSibling;
+	while(pre.nodeType!==1){
+		pre=pre.previousSibling;
+	}
+	document.getElementById("result").innerHTML=pre.innerHTML;
+
+}
+</script>
+</body>
+</html>
