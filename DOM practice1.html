@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>DOM practice</title>
+	<style type="text/css">
+		.active{
+			background-color: rgb(120,120,120);
+		}
+		*{
+			list-style: none;
+
+		}
+		ul{
+			width: 200px;
+		}
+		li{
+			display: inline-block;
+			border: 1px solid black;
+			width: 33%;
+		}
+		div{
+			width: 200px;
+			height: 150px;
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+<table border="1" width="50%" id="table">
+	<tr>
+		<th>学号</th>
+		<th>姓名</th>
+		<th>操作</th>
+	</tr>  
+
+	<tr>
+		<td>xh001</td>
+		<td>王小明</td>
+		<td><a href="javascript:;" onclick="deleteTr(this);return false;" >删除</a></td>   <!--在删除按钮上添加点击事件  -->
+	</tr>
+
+	<tr>
+		<td>xh002</td>
+		<td>刘小芳</td>
+		<td><a href="javascript:;" onclick="deleteTr(this);return false;">删除</a></td>   <!--在删除按钮上添加点击事件  -->
+	</tr>  
+</table>
+<input type="button" value="添加一行" onclick="addLine()" /> <br>  <!--在添加按钮上添加点击事件  -->
+<ul>
+	<li>房产</li>
+	<li>家具</li>
+	<li>二手房</li>
+</ul>
+<div></div>
+<script type="text/javascript">
+
+	(function(){
+		var trs=document.getElementsByTagName('tr');
+		for (var i = 0; i < trs.length; i++) {
+			trs[i].setAttribute("onmouseover","addActive(this)");
+			trs[i].setAttribute("onmouseout","removeActive(this)");
+		}
+	}());
+
+ 	function addActive(obj){
+ 		obj.setAttribute("class","active");
+ 	}
+
+ 	function removeActive(obj){
+ 		obj.setAttribute("class","");
+ 	}
+
+	function deleteTr(obj){
+		var parent=obj.parentNode.parentNode.parentNode;
+		parent.removeChild(obj.parentNode.parentNode);
+	}
+
+	function buildTr(){
+		var tr=document.createElement("tr");
+		var num=document.createElement("td");
+		num.innerHTML="xh003";
+
+		var name=document.createElement("td");
+		name.innerHTML="李小龙";
+
+		var del=document.createElement("td");
+
+		var link=document.createElement("a");
+		link.setAttribute("href","javascript:;");
+		link.setAttribute("onclick","deleteTr(this);return false;");
+		link.innerHTML="删除";
+
+		del.appendChild(link);
+
+		tr.appendChild(num);
+		tr.appendChild(name);
+		tr.appendChild(del);
+		return tr;
+	}
+
+	function addLine(){
+		var table=document.getElementById("table");
+		var tr=buildTr();
+		table.appendChild(tr);
+	}
+
+</script>
+</body>
+</html>
