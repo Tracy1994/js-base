@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>DOM practice2</title>
+	<style type="text/css">
+		*{
+			list-style: none;
+			padding: 0px;
+			margin: 0px;
+		}
+		ul{
+			width: 200px;
+		}
+		#nav{
+			height: 30px;
+		}
+		#nav li{
+			display: inline-block;
+			border: 1px solid black;
+			width: 32%;
+			float: left;
+			line-height: 30px;
+		}
+		.ul1{
+			width: 200px;
+			height: 150px;
+			border: 1px solid black;
+
+		}
+		.active{
+			background-color: rgb(100,100,100);
+		}
+		.show{
+			display: block;
+		}
+		.hiden{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<ul id="nav">
+		<li>房产</li>
+		<li>家具</li>
+		<li>二手房</li>
+	</ul>
+	<ul class="ul1 show" >
+		<li>1</li>
+		<li>1</li>
+		<li>1</li>
+	</ul>
+	<ul class="ul1 hiden">
+		<li>2</li>
+		<li>2</li>
+		<li>2</li>
+	</ul>
+	<ul class="ul1 hiden">
+		<li>3</li>
+		<li>3</li>
+		<li>3</li>
+	</ul>
+<script type="text/javascript">
+	(function(){
+		var a=1;
+		var nav=document.getElementById("nav");
+		var navLi=nav.getElementsByTagName('li');
+		var ul1s=document.getElementsByClassName("ul1");
+		console.log(ul1s[0]);
+		for (var i = 0; i < navLi.length; i++) {
+			navLi[i].index=i;
+			navLi[i].onclick=function(){
+
+				for (var i = 0; i < navLi.length; i++) {
+					navLi[i].setAttribute("class","");
+					ul1s[i].setAttribute("class","ul1 hiden");
+				}
+				this.setAttribute("class","active");
+				ul1s[this.index].setAttribute("class"," ul1 show");
+			}
+		}
+	}());
+
+	
+</script>
+
+</body>
+</html>
